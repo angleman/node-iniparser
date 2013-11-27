@@ -16,11 +16,23 @@ var iniparser = require('iniparser');
 var config = iniparser.parseSync('./config.ini');
 </pre>
 
+To parse a .ini file sync and apply transformation to each value:
+
+```js
+function remove_quotes(value) {
+	return _.unquote(value);
+}
+
+var iniparser = require('iniparser');
+var config = iniparser.parseSync('./config.ini', remove_quotes);
+```
+
 To parse a string in .ini format:
 <pre>
 var iniparser = require('iniparser');
 var config = iniparser.parseString('foo=bar');
 </pre>
+
 ## Installation
 npm:
 
